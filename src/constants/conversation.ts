@@ -1,0 +1,120 @@
+import { ConversationStatus, type Conversation, type Message } from "../types";
+
+export const conversationsData: Conversation[] = [
+  {
+    id: 1,
+    name: "Mishal Irfan",
+    avatar: "MI",
+    lastMessage: "Are You available for meeting?",
+    time: "2:34PM",
+    unreadCount: 2,
+    status: ConversationStatus.None,
+  },
+  {
+    id: 2,
+    name: "Zunaira Butt",
+    avatar: "ZB",
+    lastMessage: "Incoming",
+    time: "2:34PM",
+    unreadCount: 1,
+    status: ConversationStatus.Incoming,
+  },
+  {
+    id: 3,
+    name: "Kamran Masood",
+    avatar: "KM",
+    lastMessage: "Outgoing",
+    time: "2:34PM",
+    unreadCount: 1,
+    status: ConversationStatus.Outgoing,
+  },
+  {
+    id: 4,
+    name: "Asad Najam",
+    avatar: "AN",
+    lastMessage: "Are You available for meeting?",
+    time: "2:34PM",
+    unreadCount: 2,
+    status: ConversationStatus.None,
+  },
+  {
+    id: 5,
+    name: "Brown",
+    avatar: "B",
+    lastMessage: "Are You available for meeting?",
+    time: "2:34PM",
+    unreadCount: 2,
+    status: ConversationStatus.None,
+  },
+  {
+    id: 6,
+    name: "Kim Williamson",
+    avatar: "KW",
+    lastMessage: "Missed",
+    time: "2:34PM",
+    unreadCount: 1,
+    status: ConversationStatus.Missed,
+  },
+  {
+    id: 7,
+    name: "Shane Watson",
+    avatar: "SW",
+    lastMessage: "Outgoing",
+    time: "2:34PM",
+    unreadCount: 1,
+    status: ConversationStatus.Outgoing,
+  },
+  {
+    id: 8,
+    name: "Hazellwood",
+    avatar: "H",
+    lastMessage: "Incoming",
+    time: "2:34PM",
+    unreadCount: 1,
+    status: ConversationStatus.Incoming,
+  },
+];
+
+export const messagesData: { [key: number]: Message[] } = {
+  1: [
+    {
+      id: 1,
+      text: "Hello, how are you available for meeting",
+      timestamp: "9:30AM",
+      sender: "them",
+      read: true,
+    },
+    { id: 2, text: "Hello", timestamp: "9:30AM", sender: "me", read: true },
+    {
+      id: 3,
+      text: "Hello, how are you available for meeting",
+      timestamp: "9:31AM",
+      sender: "me",
+      read: true,
+    },
+    {
+      id: 4,
+      text: "Hello, how are you available for meeting",
+      timestamp: "9:32AM",
+      sender: "me",
+      read: true,
+    },
+    {
+      id: 5,
+      text: "Hello, how are you available for meeting",
+      timestamp: "9:34AM",
+      sender: "them",
+      read: true,
+    },
+    {
+      id: 6,
+      text: "Hello, how are you available for meeting",
+      timestamp: "9:34AM",
+      sender: "them",
+      read: true,
+    },
+    { id: 7, text: "Hello", timestamp: "9:35AM", sender: "me", read: true },
+  ],
+};
+
+export const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
