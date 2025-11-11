@@ -25,14 +25,50 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen w-full font-sans antialiased">
-      <LeftSidebar
-        conversations={conversationsData}
-        activeConversationId={activeConversationId}
-        onSelectConversation={handleSelectConversation}
-      />
-      <ChatPanel conversation={activeConversation} messages={messages} />
-      <RightSidebar contacts={contactsData} />
+    <div className="flex h-screen w-full font-sans antialiased overflow-hidden">
+      <div
+        className={`
+      h-full flex-col
+      ${activeConversationId ? "hidden" : "flex"} 
+      md:flex md:w-[360px] md:flex-shrink-0
+      w-full
+    `}
+      >
+        <LeftSidebar
+          conversations={conversationsData}
+          activeConversationId={activeConversationId}
+          onSelectConversation={handleSelectConversation}
+        />
+      </div>
+
+      <div
+        className={`
+      h-full flex-col flex-grow
+      ${!activeConversationId ? "hidden" : "flex"}
+      md:flex
+      w-full md:w-auto
+    `}
+      >
+        {activeConversation ? (
+          <ChatPanel conversation={activeConversation} messages={messages} />
+        ) : (
+          <div className="hidden md:flex h-full w-full items-center justify-center bg-gray-100">
+            <p className="text-gray-500">
+              Select a conversation to start chatting.
+            </p>
+          </div>
+        )}
+      </div>
+
+      <div
+        className="
+      h-full flex-col
+      hidden 
+      xl:flex xl:w-[360px] xl:flex-shrink-0
+    "
+      >
+        <RightSidebar contacts={contactsData} />
+      </div>
     </div>
   );
 }
