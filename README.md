@@ -40,8 +40,8 @@ You must have [Node.js](https://nodejs.org/) (v18 or newer) and `npm` installed.
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-    cd your-repo-name
+    git clonehttps://github.com/AbdullahGhani1/react-chat-app
+    cd react-chat-app
     ```
 
 2.  **Install dependencies:**
