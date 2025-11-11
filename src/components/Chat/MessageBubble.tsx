@@ -4,17 +4,40 @@ import type { Message } from "../../types";
 const MessageBubble: React.FC<{
   message: Message;
   showReadReceipt: boolean;
-}> = ({ message, showReadReceipt }) => {
+  isFirstInBlock: boolean;
+  isLastInBlock: boolean;
+}> = ({ message, showReadReceipt, isFirstInBlock, isLastInBlock }) => {
   const isSent = message.sender === "me";
+  const getBubbleRounding = () => {
+    if (isSent) {
+      if (isLastInBlock && !isFirstInBlock) {
+        return "rounded-2xl rounded-tr-none";
+      }
+      if (!isLastInBlock && !isFirstInBlock) {
+        return "rounded-l-2xl rounded-r-none";
+      }
+      return "rounded-2xl rounded-br-none";
+    } else {
+      if (isLastInBlock && !isFirstInBlock) {
+        return "rounded-2xl rounded-tl-none";
+      }
+      if (!isLastInBlock && !isFirstInBlock) {
+        return "rounded-r-2xl rounded-l-none";
+      }
+      return "rounded-2xl rounded-bl-none";
+    }
+  };
+
+  const bubbleClasses = getBubbleRounding();
 
   return (
     <div className={`flex ${isSent ? "justify-end" : "justify-start"}`}>
       <div>
         <div
-          className={`max-w-md p-3 rounded-2xl flex flex-wrap items-baseline gap-2 ${
+          className={`max-w-md p-3 flex flex-wrap items-baseline gap-2 ${bubbleClasses} ${
             isSent
-              ? "bg-gradient-to-b from-[#D92CC1] to-[#4D72F8] text-white rounded-tr-2xl rounded-br-none"
-              : "bg-gray-200 text-gray-800 rounded-full"
+              ? "bg-gradient-to-r from-[#D92CC1] to-[#4D72F8] text-white"
+              : "bg-gray-200 text-gray-800"
           }`}
         >
           <p className="text-md mr-2">{message.text}</p>
@@ -33,6 +56,7 @@ const MessageBubble: React.FC<{
             </span>
           </div>
         </div>
+
         <div className="flex justify-end">
           {showReadReceipt && (
             <FaCheckDouble

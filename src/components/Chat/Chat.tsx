@@ -25,16 +25,26 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ conversation, messages }) => {
       <div className="flex-grow p-6 overflow-y-auto space-y-4">
         <div className="text-center text-xs text-gray-400">Today 12:34 PM</div>
         {messages.map((msg, index) => {
+          const prevMessage = messages[index - 1];
+
           const nextMessage = messages[index + 1];
           const isSentByMe = msg.sender === "me";
           const showReadReceipt =
             isSentByMe && (!nextMessage || nextMessage.sender === "them");
+
+          const isFirstInBlock =
+            !prevMessage || prevMessage.sender !== msg.sender;
+
+          const isLastInBlock =
+            !nextMessage || nextMessage.sender !== msg.sender;
 
           return (
             <MessageBubble
               key={msg.id}
               message={msg}
               showReadReceipt={showReadReceipt}
+              isFirstInBlock={isFirstInBlock}
+              isLastInBlock={isLastInBlock}
             />
           );
         })}
