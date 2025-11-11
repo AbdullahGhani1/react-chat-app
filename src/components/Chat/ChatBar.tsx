@@ -18,11 +18,11 @@ const ChatBar = () => {
       >
         <CgCalendarDates />
       </button>
-      <div className="flex-grow flex justify-between mx-2 rounded-sm bg-gray-50">
+      <div className="flex-grow flex items-center mx-2 rounded-sm bg-gray-50">
         <input
           type="text"
           placeholder="Type Message here"
-          className=" px-4 py-2 focus:outline-none text-gray-700"
+          className="flex-grow px-4 py-2 focus:outline-none text-gray-700 bg-transparent"
         />
         <button
           className="p-2 text-gray-500 hover:text-purple-600"
