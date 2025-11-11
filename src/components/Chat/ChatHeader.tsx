@@ -21,10 +21,10 @@ const ChatHeader = ({ conversation }: ChatHeaderProps) => {
       </div>
       <div className="flex items-center space-x-4 text-gray-500">
         <button className="hover:text-purple-600">
-          <LuPhone />{" "}
+          <LuPhone className="w-6 h-6" />{" "}
         </button>
         <button className="hover:text-purple-600">
-          <MdMoreVert />{" "}
+          <MdMoreVert className="w-6 h-6" />{" "}
         </button>
       </div>
     </header>
