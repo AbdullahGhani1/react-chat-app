@@ -1,4 +1,3 @@
-import React from "react";
 import type { Contact } from "../../types";
 const ContactItem: React.FC<{ contact: Contact }> = ({ contact }) => (
   <div className="flex items-center py-2 ">

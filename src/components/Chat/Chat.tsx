@@ -1,4 +1,3 @@
-import React from "react";
 import type { Conversation, Message } from "../../types";
 import MessageBubble from "./MessageBubble";
 import ChatHeader from "./ChatHeader";

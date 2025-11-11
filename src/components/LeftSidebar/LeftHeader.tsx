@@ -1,4 +1,3 @@
-import React from "react";
 import { LuPhone } from "react-icons/lu";
 import { MdOutlineMessage } from "react-icons/md";
 
